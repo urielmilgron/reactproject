@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300&family=Oswald:wght@300;400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.card{
+    background-color:rgb(246, 245, 245) ;
+    box-shadow: 1px 2px 5px rgb(200, 199, 199);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 30rem;
+    height: 40rem;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    align-items: center;
+    flex-direction: column;
+}
+.titleCard, .subTitle{
+    width: 95%;
+    height: 15%;
+    display: flex;
+   text-align: center;
+}
+.titleCard h3{
+    font-size: x-large;
+}
+.subTitle h5{
+   font-size: large;
+}
+.titleCard h3, .subTitle h5{
+    font-family: 'Barlow Condensed', sans-serif;
+    background-color:rgb(246, 245, 245) ;
+    border-radius: 2px;
+    box-shadow: 1px 0px 1px rgba(218, 218, 218, 0.312);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divImgCard{
+    width: 95%;
+    height:50% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.imgCard{
+    width: 100%;    
+    box-shadow: 1px 0px 6px rgb(193, 193, 193);
+    border-radius: 5px;
+
+}
+.divBtnVer{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnVer{
+    background-color: rgb(235, 235, 235);
+    width: 20%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 0px 5px rgba(137, 137, 137, 0.708);
+    transition: all .4s;
+}
+.btnVer:hover{
+    box-shadow: 2px 0px 8px rgba(137, 137, 137, 0.708);
+}
