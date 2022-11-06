@@ -77,13 +77,12 @@ const NavContainer = styled.nav`
     flex-direction: column;
     align-items: center;
     position: absolute;
-    background-color: aliceblue;
-    top: 7%;
+    top: 12%;
     left: 0;
     right: 0;
     text-align: center;
     a{
-      width: 30%;
+      width: 40%;
     }
   }
   div a {
