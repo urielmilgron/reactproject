@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { getNotices } from "../asyncMock";
+import ItemList from "./ItemList";
 
 const ItemNoticeContainer = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+  const [notices, setNotices] = useState([]);
+  console.log(notices);
+  useEffect(() => {
+    getNotices().then((notices) => {
+      setNotices(notices);
+    });
+  });
+  return (
+    <Main>
+      <section>
+        <ItemList notices={notices} />
+      </section>
+    </Main>
+  );
+};
 
 export default ItemNoticeContainer;
+
+const Main = styled.main`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
