@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import BurguerMenu from "./BurguerMenu";
+import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
 const [btnClick, setBtnClick] = useState(false)
@@ -13,10 +14,10 @@ setBtnClick(!btnClick)
       <NavContainer>
         <h2>Noticix</h2>
         <div className={`navLinks ${btnClick ? 'active' : ''}`}>
-          <a href="/">Inicio</a>
-          <a href="/">Ultimas noticias</a>
-          <a href="/">Noticias cerca tuyo</a>
-          <a href="/">Secciones</a>
+          <NavLink to="/">Inicio</NavLink>
+          <NavLink to="/lastnews">Ultimas noticias</NavLink>
+          <NavLink href="/newsnearyou">Noticias cerca tuyo</NavLink>
+          <NavLink href="/sections">Secciones</NavLink>
         </div>
         <div className="burguer">
           <BurguerMenu btnClick={btnClick} handleClick={handleClick}/>
@@ -34,86 +35,6 @@ const Header = styled.header`
   align-items: center;
 `;
 const NavContainer = styled.nav`
-  /* border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #64758C;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
-  width: 98%;
-  box-shadow: 1px 2px 10px #0000006e;
-  h2 {
-    margin-left: 3rem;
-    color: #F0F0F2;
-  }
-  .navLinks {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    width: 50%;
-    top: -700px;
-    left: -2000px;
-    @media (min-width: 768px) {
-      position: initial;
-      margin: 0;
-      a {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-      }
-    }
-  }
-  .navLinks.active {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    width: 98%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    background-color: #3E3E40;
-    align-items: center;
-    position: absolute;
-    top: 7.5%;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    text-align: center;
-    animation:  1s navAnimation alternate forwards;
-    @media (max-width: 375px ){
-      top: 10%;
-    }
-    a{
-      width: 40%;
-    }
-  }
-  @keyframes navAnimation{
-    0%{
-      height: 0;
-    }
-    100%{
-      height: 300px;
-    }
-  }
-  div a {
-    color: #F0F0F2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    text-align: center;
-    height: 80%;
-    width: 24.5%;
-  } */
-
   //Nuevo header
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -137,7 +58,7 @@ const NavContainer = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    top:10%;
+    top:7.5%;
     background-color: #BDBDBF;
     box-shadow: 1px 2px 10px #0000006e;
     animation: aparecer 1s alternate forwards;

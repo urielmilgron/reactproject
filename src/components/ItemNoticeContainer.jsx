@@ -24,6 +24,12 @@ export default ItemNoticeContainer;
 
 const Main = styled.main`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  section{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
 `;

@@ -27,6 +27,6 @@ export const getNotices = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(notices)
-        }, 2000)
+        }, 1000)
     })
 }
