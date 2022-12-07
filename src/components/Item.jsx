@@ -1,8 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom"
 
 
 const Item = ({ notice }) => {
+  const [lastPhrase, setLastPhrase] = useState('')
+  const [firstPhrase, setFirstPhrase] = useState('')
+  useEffect (()=>{
+    setLastPhrase(notice.textNotice.slice(200))
+    console.log(lastPhrase)
+    const firstPhraseSave = notice.textNotice.slice(0,200);
+    firstPhraseSave[firstPhraseSave.length-1] === "." ? setFirstPhrase(firstPhraseSave) : setFirstPhrase(firstPhraseSave + "...")
+  }, [notice])
+  const showLastPhrase = () => {
+    
+  }
   return (
     <Card>
       <div className="imageContainer">
@@ -12,7 +26,8 @@ const Item = ({ notice }) => {
         <h4 className="title">{notice.title}</h4>
       </div>
       <section className="textContainer">
-        <p className="text">{notice.textNotice}</p>
+        <p className="text">{firstPhrase}</p>
+        {lastPhrase === '' ? `` : <Link onClick={showLastPhrase}>Ver más...</Link>}
       </section>
     </Card>
   );
@@ -25,8 +40,8 @@ const Card = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  width: 70%;
-  height: 550px;
+  width: 90%;
+  min-height: 34rem;
   background-color: aqua;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -41,8 +56,8 @@ const Card = styled.div`
     height: 50%;
   }
   .image {
-    max-width: 410px;
-    max-height: 410px;
+    max-width: 250px;
+    max-height: 250px;
   }
   .titleContainer{
     background-color: yellowgreen;
@@ -51,6 +66,7 @@ const Card = styled.div`
   }
   .textContainer{
     width: 98%;
+    background-color:blue;
     text-align: center;
   }
 `;

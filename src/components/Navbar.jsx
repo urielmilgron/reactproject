@@ -6,15 +6,19 @@ import {NavLink} from 'react-router-dom'
 const Navbar = () => {
 const [btnClick, setBtnClick] = useState(false)
 const linksNav = [{
+  id:"1",
   name:"Inicio",
   path:"/"
 },{
+  id:"2",
   name:"Ultimas noticias",
   path:"/lastnews"
 },{
+  id:"3",
   name:"Noticias cerca tuyo",
   path:"/newsnearyou"
 },{
+  id:"4",
   name:"Secciones",
   path:"/sections"
 }]
@@ -27,7 +31,7 @@ setBtnClick(!btnClick)
       <NavContainer>
         <h2>Noticix</h2>
         <div className={`navLinks ${btnClick ? 'active' : ''}`}>
-          {linksNav.map(linkNav => <NavLink to={linkNav.path} onClick={handleClick}>{linkNav.name}</NavLink>)}
+          {linksNav.map(linkNav => <NavLink key={linkNav.id} to={linkNav.path} onClick={handleClick}>{linkNav.name}</NavLink>)}
         </div>
         <div className="burguer">
           <BurguerMenu btnClick={btnClick} handleClick={handleClick}/>
