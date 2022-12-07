@@ -5,6 +5,19 @@ import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
 const [btnClick, setBtnClick] = useState(false)
+const linksNav = [{
+  name:"Inicio",
+  path:"/"
+},{
+  name:"Ultimas noticias",
+  path:"/lastnews"
+},{
+  name:"Noticias cerca tuyo",
+  path:"/newsnearyou"
+},{
+  name:"Secciones",
+  path:"/sections"
+}]
 const handleClick = () => {
   //Cuando está true lo pasa a false y viceversa
 setBtnClick(!btnClick)
@@ -14,10 +27,7 @@ setBtnClick(!btnClick)
       <NavContainer>
         <h2>Noticix</h2>
         <div className={`navLinks ${btnClick ? 'active' : ''}`}>
-          <NavLink to="/">Inicio</NavLink>
-          <NavLink to="/lastnews">Ultimas noticias</NavLink>
-          <NavLink href="/newsnearyou">Noticias cerca tuyo</NavLink>
-          <NavLink href="/sections">Secciones</NavLink>
+          {linksNav.map(linkNav => <NavLink to={linkNav.path} onClick={handleClick}>{linkNav.name}</NavLink>)}
         </div>
         <div className="burguer">
           <BurguerMenu btnClick={btnClick} handleClick={handleClick}/>
@@ -35,7 +45,7 @@ const Header = styled.header`
   align-items: center;
 `;
 const NavContainer = styled.nav`
-  //Nuevo header
+  /* Nuevo header */
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: #64758C;
