@@ -9,9 +9,9 @@ const Item = ({ notice }) => {
   const [lastPhrase, setLastPhrase] = useState('')
   const [firstPhrase, setFirstPhrase] = useState('')
   useEffect (()=>{
-    setLastPhrase(notice.textNotice.slice(200))
+    setLastPhrase(notice.textNotice.slice(150))
     console.log(lastPhrase)
-    const firstPhraseSave = notice.textNotice.slice(0,200);
+    const firstPhraseSave = notice.textNotice.slice(0,150);
     firstPhraseSave[firstPhraseSave.length-1] === "." ? setFirstPhrase(firstPhraseSave) : setFirstPhrase(firstPhraseSave + "...")
   }, [notice])
   const showLastPhrase = () => {
@@ -27,7 +27,7 @@ const Item = ({ notice }) => {
       </div>
       <section className="textContainer">
         <p className="text">{firstPhrase}</p>
-        {lastPhrase === '' ? `` : <Link onClick={showLastPhrase}>Ver más...</Link>}
+        {lastPhrase === '' ? `` : <CardLink onClick={showLastPhrase}>Ver más</CardLink>}
       </section>
     </Card>
   );
@@ -41,8 +41,7 @@ const Card = styled.div`
   align-items: center;
   flex-direction: column;
   width: 90%;
-  min-height: 34rem;
-  background-color: aqua;
+  min-height: 28rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 1%;
@@ -51,7 +50,6 @@ const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: azure;
     width: 100%;
     height: 50%;
   }
@@ -60,13 +58,30 @@ const Card = styled.div`
     max-height: 250px;
   }
   .titleContainer{
-    background-color: yellowgreen;
-    width: 98%;
+    width: 95%;
     text-align: center;
   }
   .textContainer{
-    width: 98%;
-    background-color:blue;
+    width: 95%;
+    height: 11rem;
     text-align: center;
   }
+  Link{
+      height:150px;
+    }
+`;
+const CardLink = styled(Link)`
+width: 35%;
+height: 2rem;
+margin-bottom: 10px;
+margin-top:10px;
+text-decoration: none;
+color: white;
+background-color: #7070a4;
+border-radius: 6px;
+display: flex;
+justify-content: center;
+text-align: center;
+align-items: center;
+box-shadow: 1px 1px 15px 0px #00000061;
 `;
