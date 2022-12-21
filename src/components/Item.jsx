@@ -8,26 +8,25 @@ import { Link } from "react-router-dom"
 const Item = ({ notice }) => {
   const [lastPhrase, setLastPhrase] = useState('')
   const [firstPhrase, setFirstPhrase] = useState('')
+  const {img, title, id, textNotice} = notice
   useEffect (()=>{
-    setLastPhrase(notice.textNotice.slice(150))
+    setLastPhrase(textNotice.slice(150))
     console.log(lastPhrase)
-    const firstPhraseSave = notice.textNotice.slice(0,150);
+    const firstPhraseSave = textNotice.slice(0,150);
     firstPhraseSave[firstPhraseSave.length-1] === "." ? setFirstPhrase(firstPhraseSave) : setFirstPhrase(firstPhraseSave + "...")
   }, [notice])
-  const showLastPhrase = () => {
-    
-  }
+
   return (
     <Card>
       <div className="imageContainer">
-        <img className="image" src={notice.img} alt="" />
+        <img className="image" src={img} alt="" />
       </div>
       <div className="titleContainer">
-        <h4 className="title">{notice.title}</h4>
+        <h4 className="title">{title}</h4>
       </div>
       <section className="textContainer">
         <p className="text">{firstPhrase}</p>
-        {lastPhrase === '' ? `` : <CardLink onClick={showLastPhrase}>Ver más</CardLink>}
+        <CardLink to={`/notice/${id}`} notice={notice}>Ver más</CardLink>
       </section>
     </Card>
   );
