@@ -11,9 +11,9 @@ function App() {
     <BrowserRouter>
     <Navbar/>
     <Routes>
-    <Route path="/" element={<Index/>}/>
+    <Route exact path="/" element={<Index/>}/>
     <Route exact path="/lastnews" element={<ItemNoticeContainer/>}/>
-    <Route exact path="/notice/:id" element={<ItemDetail/>}/>
+    <Route path="/notice/:id" element={<ItemDetail/>}/>
     </Routes>
     </BrowserRouter>
   );

@@ -1,23 +1,24 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 const Item = ({ notice }) => {
-  const [lastPhrase, setLastPhrase] = useState('')
   const [firstPhrase, setFirstPhrase] = useState('')
   const {img, title, id, textNotice} = notice
+  const navigate = useNavigate()
   useEffect (()=>{
-    setLastPhrase(textNotice.slice(150))
-    console.log(lastPhrase)
     const firstPhraseSave = textNotice.slice(0,150);
     firstPhraseSave[firstPhraseSave.length-1] === "." ? setFirstPhrase(firstPhraseSave) : setFirstPhrase(firstPhraseSave + "...")
   }, [notice])
 
+  const handleDetailsClick = () => {
+    navigate(`/notice/${id}`,
+      {state:{notice}
+    })
+  }
   return (
-    <Card>
+    <Card key={id}>
       <div className="imageContainer">
         <img className="image" src={img} alt="" />
       </div>
@@ -26,7 +27,7 @@ const Item = ({ notice }) => {
       </div>
       <section className="textContainer">
         <p className="text">{firstPhrase}</p>
-        <CardLink to={`/notice/${id}`} notice={notice}>Ver más</CardLink>
+        <CardLink onClick={()=>handleDetailsClick()}>Ver más</CardLink>
       </section>
     </Card>
   );
@@ -69,7 +70,7 @@ const Card = styled.div`
       height:150px;
     }
 `;
-const CardLink = styled(Link)`
+const CardLink = styled.button`
 width: 35%;
 height: 2rem;
 margin-bottom: 10px;

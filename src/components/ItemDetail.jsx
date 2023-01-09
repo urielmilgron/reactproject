@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const ItemDetail = ({notice}) => {
+const ItemDetail = () => {
+    const location = useLocation()
+    const notice = location.state.notice
     return (
-        <h2>Hola</h2>
+        <>
+            <h2>{notice.title}</h2>
+        </>
+
     );
 }
 
