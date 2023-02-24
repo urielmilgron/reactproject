@@ -9,7 +9,7 @@ const FilterBar = () =>{
     const [filters, setFilters] = useState({
         date:'',
         location: '',
-        ccategory:''
+        category:''
     })
     //Filter type function indicator
     const handleFilterChange = (filterType, value) =>{
