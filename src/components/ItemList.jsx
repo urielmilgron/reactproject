@@ -22,17 +22,13 @@ const ItemList = ({notices}) => {
     return ( 
         <div>
       <h1>Noticias</h1>
-      <button onClick={() => filterNews("política")}>Política</button>
+      <button onClick={() => filterNews("Entretenimiento")}>Entretenimiento</button>
       <button onClick={() => filterNews("Deportes")}>Deportes</button>
       <button onClick={() => setFilteredNews(notices)}>Mostrar todo</button>
       <ul>
         {filteredNews.map((newsItem) => {
           return (
-            <li key={newsItem.id}>
-              <h2>{newsItem.title}</h2>
-              <p>{newsItem.content}</p>
-              <p>{newsItem.category}</p>
-            </li>
+            <Item key={newsItem.id} notice={newsItem}/>
           );
         })}
       </ul>
