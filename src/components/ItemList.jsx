@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import FilterBar from './FilterBar';
 
@@ -6,7 +6,11 @@ const ItemList = ({notices}) => {
     //Mantenemos las noticias en un estado para poder actualizar el listado en caso de que el usuario quiera
     //usar un filtro
 
-    const [filteredNews, setFilteredNews] = useState(notices)
+    const [filteredNews, setFilteredNews] = useState([])
+    useEffect(()=>{
+        setFilteredNews(notices)
+    },[])
+   
 
    //Creamos una función que cambie el filtro
 
@@ -16,8 +20,6 @@ const ItemList = ({notices}) => {
     })
     setFilteredNews(filtered)
    }
- 
-  
 
     return ( 
         <div>

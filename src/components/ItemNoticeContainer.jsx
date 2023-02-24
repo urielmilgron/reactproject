@@ -5,7 +5,6 @@ import ItemList from "./ItemList";
 
 const ItemNoticeContainer = () => {
   const [notices, setNotices] = useState([]);
-  console.log(notices);
   useEffect(() => {
     getNotices().then((notices) => {
       setNotices(notices);
