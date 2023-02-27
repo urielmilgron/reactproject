@@ -7,11 +7,9 @@ const ItemList = ({notices}) => {
     //usar un filtro
 
     const [filteredNews, setFilteredNews] = useState([])
-    useEffect(()=>{
-        setFilteredNews(notices)
-    },[])
-   
-
+    useEffect(() => {
+      setFilteredNews(notices)
+    },[notices])
    //Creamos una función que cambie el filtro
 
    const filterNews = (category) => {

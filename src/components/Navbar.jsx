@@ -96,9 +96,11 @@ const NavContainer = styled.nav`
       height: 24.8%;
     }
   //Ocultamos el menú cuando pase cierto tamaño.
-  .burguer {
+
     @media (min-width: 768px) {
-      display: none;
+      .burguer{
+        display: none;
+      }
     }
-  }
+  
 `;
